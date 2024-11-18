@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -9,6 +9,7 @@ import * as authService from '../src/services/authService'; // import the authse
 import * as eventService from '../src/services/eventService'; // import the event
 import EventList from './components/EventList/EventList'; // import the eventList component
 import EventDetails from './components/EventDetails/EventDetails';
+import EventForm from './components/EventForm/EventForm';
 
 
 export const AuthedUserContext = createContext(null);
@@ -17,6 +18,8 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser()); // using the method from authservice
 
   const [events, setEvents] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllEvents = async () => {
@@ -34,6 +37,13 @@ const App = () => {
     setUser(null);
   };
 
+  const handleAddEvent = async (eventFormData) => {
+    const newEvent = await eventService.create(eventFormData);
+    setEvents([newEvent, ...events]);
+    navigate('/events');
+  };
+  
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -45,6 +55,8 @@ const App = () => {
       <Route path="/" element={<Dashboard user={user} />} />
       <Route path="/events" element={<EventList events={events} />} />
       <Route path="/events/:eventId" element={<EventDetails />} />
+      <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
+
     </>
   ) : (
     // Public Route:
