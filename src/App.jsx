@@ -64,9 +64,6 @@ const App = () => {
       <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
       <Route path="/events/:eventId" element={<EventDetails handleDeleteEvent={handleDeleteEvent} />}
 />
-
-      
-
     </>
   ) : (
     // Public Route:
@@ -74,7 +71,7 @@ const App = () => {
   )}
   <Route path="/signup" element={<SignupForm setUser={setUser} />} />
   <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-</Routes>
+  </Routes>
       </AuthedUserContext.Provider>
     </>
   );
