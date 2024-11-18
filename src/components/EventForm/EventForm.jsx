@@ -44,7 +44,7 @@ const EventForm = (props) => {
         <input 
           required
           type="datetime-local"
-          name="datetime-local"
+          name="date"
           id="date"
           onChange={handleChange}
         />
