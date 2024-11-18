@@ -49,22 +49,21 @@ const App = () => {
       <AuthedUserContext.Provider value={user}>
         <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
-  {user ? (
-    // Protected Routes:
-    <>
-      <Route path="/" element={<Dashboard user={user} />} />
-      <Route path="/events" element={<EventList events={events} />} />
-      <Route path="/events/:eventId" element={<EventDetails />} />
-      <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
-
-    </>
-  ) : (
-    // Public Route:
-    <Route path="/" element={<Landing />} />
-  )}
-  <Route path="/signup" element={<SignupForm setUser={setUser} />} />
-  <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-</Routes>
+          {user ? (
+            // Protected Routes:
+            <>
+              <Route path="/" element={<Dashboard user={user} />} />
+              <Route path="/events" element={<EventList events={events} />} />
+              <Route path="/events/:eventId" element={<EventDetails />} />
+              <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
+            </>
+          ) : (
+            // Public Route:
+            <Route path="/" element={<Landing />} />
+          )}
+          <Route path="/signup" element={<SignupForm setUser={setUser} />} />
+          <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+        </Routes>
       </AuthedUserContext.Provider>
     </>
   );
