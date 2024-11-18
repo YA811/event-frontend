@@ -44,26 +44,37 @@ const App = () => {
   };
   
 
+  const handleDeleteEvent = async (eventId) => {
+    const deletedEvent = await eventService.deleteEvent(eventId);
+    setEvents(events.filter((event) => event._id !== deletedEvent._id));
+    navigate('/events');
+  };
+  
+
   return (
     <>
       <AuthedUserContext.Provider value={user}>
         <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
-          {user ? (
-            // Protected Routes:
-            <>
-              <Route path="/" element={<Dashboard user={user} />} />
-              <Route path="/events" element={<EventList events={events} />} />
-              <Route path="/events/:eventId" element={<EventDetails />} />
-              <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
-            </>
-          ) : (
-            // Public Route:
-            <Route path="/" element={<Landing />} />
-          )}
-          <Route path="/signup" element={<SignupForm setUser={setUser} />} />
-          <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-        </Routes>
+  {user ? (
+    // Protected Routes:
+    <>
+      <Route path="/" element={<Dashboard user={user} />} />
+      <Route path="/events" element={<EventList events={events} />} />
+      <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
+      <Route path="/events/:eventId" element={<EventDetails handleDeleteEvent={handleDeleteEvent} />}
+/>
+
+      
+
+    </>
+  ) : (
+    // Public Route:
+    <Route path="/" element={<Landing />} />
+  )}
+  <Route path="/signup" element={<SignupForm setUser={setUser} />} />
+  <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+</Routes>
       </AuthedUserContext.Provider>
     </>
   );
