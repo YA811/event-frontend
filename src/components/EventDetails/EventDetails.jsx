@@ -24,7 +24,7 @@ const EventDetails = (props) => {
         <main>
           <header>
             <h1>{event.title}</h1>
-            <h2>on {event.data}</h2>
+            <h2>on {event.date}</h2>
             <h2>{event.location}</h2>
             <p>{event.description}</p>
           </header>
