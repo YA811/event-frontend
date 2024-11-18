@@ -8,6 +8,7 @@ import SigninForm from './components/SigninForm/SigninForm';
 import * as authService from '../src/services/authService'; // import the authservice
 import * as eventService from '../src/services/eventService'; // import the event
 import EventList from './components/EventList/EventList'; // import the eventList component
+import EventDetails from './components/EventDetails/EventDetails';
 
 
 export const AuthedUserContext = createContext(null);
@@ -43,6 +44,7 @@ const App = () => {
     <>
       <Route path="/" element={<Dashboard user={user} />} />
       <Route path="/events" element={<EventList events={events} />} />
+      <Route path="/events/:eventId" element={<EventDetails />} />
     </>
   ) : (
     // Public Route:
