@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import * as eventService from '../../services/eventService';
+import AttendeeForm from '../AttendeeForm/AttendeeForm';
 
 const EventDetails = (props) => {
     const { eventId } = useParams();
@@ -18,6 +19,11 @@ const EventDetails = (props) => {
       
     console.log('event state:', event);
 
+    const handleAddAttendee = async (attendeeFormData) => {
+        const newAttendee = await eventService.createAttendee(eventId, attendeeFormData);
+        setEvent({ ...event, attendees: [...event.attendees, newAttendee] });
+    };
+
     if (!event) return <main>Loading...</main>;
 
     return (
@@ -30,6 +36,7 @@ const EventDetails = (props) => {
           </header>
           <section>
             <h2>Attendees List</h2>
+            <AttendeeForm handleAddAttendee={handleAddAttendee} />
             {!event.attendees.length && <p>No attendees yet.</p>}
 
         {event.attendees.map((attendee) => (
