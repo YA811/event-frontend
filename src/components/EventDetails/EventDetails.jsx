@@ -3,6 +3,7 @@ import { AuthedUserContext } from '../../App';
 import { useState, useEffect, useContext } from 'react';
 import * as eventService from '../../services/eventService';
 import AttendeeForm from '../AttendeeForm/AttendeeForm';
+import { Link } from 'react-router-dom';
 
 const EventDetails = (props) => {
     const { eventId } = useParams();
@@ -36,8 +37,8 @@ const EventDetails = (props) => {
             <p>{event.description}</p>
             {event.planner._id === user._id && (
             <>
+            <Link to={`/events/${eventId}/edit`}>Edit</Link>
             <button onClick={() => props.handleDeleteEvent(eventId)}>Delete</button>
-
             </>
           )}
           </header>

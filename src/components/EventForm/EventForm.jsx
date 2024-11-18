@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import * as eventService from '../../services/eventService';
 
 const EventForm = (props) => {
+  const { eventId } = useParams();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -8,19 +11,31 @@ const EventForm = (props) => {
   
   });
 
+  useEffect(() => {
+    const fetchEvent = async () => {
+      const eventData = await eventService.show(eventId);
+      setFormData(eventData);
+    };
+    if (eventId) fetchEvent();
+  }, [eventId]);
+
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleAddEvent(formData);
+    if (eventId) {
+      props.handleUpdateEvent(eventId, formData);
+    } else {
+      props.handleAddEvent(formData);
+    }
   };
   
-
   return (
     <main>
       <form onSubmit={handleSubmit}>
+        <h1>{eventId ? 'Edit Event' : 'New Event'}</h1>
         <label htmlFor="title">Event Title</label>
         <input
           required
