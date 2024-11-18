@@ -1,12 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { AuthedUserContext } from '../../App';
+import { useState, useEffect, useContext } from 'react';
 import * as eventService from '../../services/eventService';
 import AttendeeForm from '../AttendeeForm/AttendeeForm';
 
 const EventDetails = (props) => {
     const { eventId } = useParams();
-
     const [event, setEvent] = useState(null);
+    const user = useContext(AuthedUserContext);
 
     useEffect(() => {
         const fetchEvent = async () => {
@@ -33,6 +34,12 @@ const EventDetails = (props) => {
             <h2>on {event.date}</h2>
             <h2>{event.location}</h2>
             <p>{event.description}</p>
+            {event.planner._id === user._id && (
+            <>
+            <button onClick={() => props.handleDeleteEvent(eventId)}>Delete</button>
+
+            </>
+          )}
           </header>
           <section>
             <h2>Attendees List</h2>
