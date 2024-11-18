@@ -49,6 +49,12 @@ const App = () => {
     setEvents(events.filter((event) => event._id !== deletedEvent._id));
     navigate('/events');
   };
+
+  const handleUpdateEvent = async (eventId, eventFormData) => {
+    const updatedEvent = await eventService.update(eventId, eventFormData);
+    setEvents(events.map((event) => (eventId === event._id ? updatedEvent : event)));
+    navigate(`/events/${eventId}`);
+  };
   
 
   return (
@@ -56,24 +62,24 @@ const App = () => {
       <AuthedUserContext.Provider value={user}>
         <NavBar user={user} handleSignout={handleSignout} />
         <Routes>
-  {user ? (
-    // Protected Routes:
-    <>
-      <Route path="/" element={<Dashboard user={user} />} />
-      <Route path="/events" element={<EventList events={events} />} />
-      <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
-      <Route path="/events/:eventId" element={<EventDetails handleDeleteEvent={handleDeleteEvent} />}
-/>
-    </>
-  ) : (
-    // Public Route:
-    <Route path="/" element={<Landing />} />
-  )}
-  <Route path="/signup" element={<SignupForm setUser={setUser} />} />
-  <Route path="/signin" element={<SigninForm setUser={setUser} />} />
-  </Routes>
-      </AuthedUserContext.Provider>
-    </>
+        {user ? (
+          // Protected Routes:
+          <>
+            <Route path="/" element={<Dashboard user={user} />} />
+            <Route path="/events" element={<EventList events={events} />} />
+            <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
+            <Route path="/events/:eventId" element={<EventDetails handleDeleteEvent={handleDeleteEvent} />} />
+            <Route path="/events/:eventId/edit" element={<EventForm handleUpdateEvent={handleUpdateEvent}/>} />
+          </>
+        ) : (
+          // Public Route:
+          <Route path="/" element={<Landing />} />
+        )}
+          <Route path="/signup" element={<SignupForm setUser={setUser} />} />
+          <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+          </Routes>
+            </AuthedUserContext.Provider>
+          </>
   );
 };
 
