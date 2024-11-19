@@ -1,9 +1,11 @@
 import { useState } from 'react';
+
 const AttendeeForm = (props) => {
   const [formData, setFormData] = useState({
     name: '',
     invitationStatus: 'pending',
   });
+
   const handleChange = event => {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
