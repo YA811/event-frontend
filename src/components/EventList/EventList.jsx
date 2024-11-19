@@ -9,7 +9,7 @@ const EventList = (props) => {
         <article>
           <header>
             <h2>{event.title}</h2>
-            <p>{event.date}</p>
+            <p>on {event.date.split('T')[0]}, at {event.date.split('T')[1].split('.')[0]}</p>
           </header>
         </article>
       </Link>

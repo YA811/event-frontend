@@ -37,7 +37,8 @@ const EventDetails = (props) => {
         <main>
           <header>
             <h1>{event.title}</h1>
-            <h2>on {event.date}</h2>
+            <h2>On {event.date.split('T')[0]}</h2>
+            <h2>At {event.date.split('T')[1].split('.')[0]}</h2>
             <h2>{event.location}</h2>
             <p>{event.description}</p>
             {event.planner._id === user._id && (
