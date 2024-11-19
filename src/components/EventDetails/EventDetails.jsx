@@ -26,6 +26,11 @@ const EventDetails = (props) => {
         setEvent({ ...event, attendees: [...event.attendees, newAttendee] });
     };
 
+    const handleDeleteAttendee = async (attendeeId) => {
+      await eventService.deleteAttendee(eventId, attendeeId);
+      setEvent({...event, attendees: event.attendees.filter((attendee) => attendee._id !== attendeeId),});
+    };
+
     if (!event) return <main>Loading...</main>;
 
     return (
@@ -51,6 +56,11 @@ const EventDetails = (props) => {
             <article key={attendee._id}>
             <p>{attendee.name}</p>
             <p>{attendee.invitationStatus}</p>
+            <div>
+            {attendee._id && (
+            <button onClick={() => handleDeleteAttendee(attendee._id)}>Delete</button>
+            )}
+            </div>
             </article>
         ))}
           </section>

@@ -85,4 +85,22 @@ export async function update(eventId, eventFormData) {
     console.log(error);
   }
 };
+
+export const deleteAttendee = async (eventId, attendeeId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${eventId}/attendees/${attendeeId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
   
+  
+
+
+
