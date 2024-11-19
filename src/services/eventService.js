@@ -99,6 +99,23 @@ export const deleteAttendee = async (eventId, attendeeId) => {
     console.log(error);
   }
 };
+
+export const updateAttendee = async (eventId, attendeeId, attendeeFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${eventId}/attendees/${attendeeId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(attendeeFormData)
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
   
   
 

@@ -58,7 +58,10 @@ const EventDetails = (props) => {
             <p>{attendee.invitationStatus}</p>
             <div>
             {attendee._id && (
-            <button onClick={() => handleDeleteAttendee(attendee._id)}>Delete</button>
+              <>
+              <Link to={`/events/${eventId}/attendees/${attendee._id}/edit`}>Edit</Link>
+              <button onClick={() => handleDeleteAttendee(attendee._id)}>Delete</button>
+              </>
             )}
             </div>
             </article>
