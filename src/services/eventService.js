@@ -86,7 +86,3 @@ export async function update(eventId, eventFormData) {
   }
 };
   
-  
-
-
-
