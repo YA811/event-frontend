@@ -10,6 +10,7 @@ import * as eventService from '../src/services/eventService'; // import the even
 import EventList from './components/EventList/EventList'; // import the eventList component
 import EventDetails from './components/EventDetails/EventDetails';
 import EventForm from './components/EventForm/EventForm';
+import AttendeeForm from './components/AttendeeForm/AttendeeForm';
 
 
 export const AuthedUserContext = createContext(null);
@@ -70,6 +71,7 @@ const App = () => {
             <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
             <Route path="/events/:eventId" element={<EventDetails handleDeleteEvent={handleDeleteEvent} />} />
             <Route path="/events/:eventId/edit" element={<EventForm handleUpdateEvent={handleUpdateEvent}/>} />
+            <Route path="/events/:eventId/attendees/:attendeeId/edit" element={<AttendeeForm />} />
           </>
         ) : (
           // Public Route:
