@@ -6,7 +6,7 @@ const Dashboard = ({}) => {
   const user = useContext(AuthedUserContext);
   return (
   <main className="welcome-container">
-    <h1 className="welcome-title">Welcome to Evenzo, {user.username}</h1>
+    <h1 className="welcome-title">Welcome to EVENZO, {user.username}</h1>
     <p className="welcome-message">You’ve got this! Planning your dream event starts here.</p>
   </main>
 
