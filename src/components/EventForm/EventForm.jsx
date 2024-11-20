@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as eventService from '../../services/eventService';
+import './EventForm.css';
 
 const EventForm = (props) => {
   const { eventId } = useParams();
@@ -33,11 +34,13 @@ const EventForm = (props) => {
   };
   
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
-        <h1>{eventId ? 'Edit Event' : 'New Event'}</h1>
-        <label htmlFor="title">Event Title</label>
+    <main className="event-form-container">
+      <form className="event-form" onSubmit={handleSubmit}>
+        <h1 className="event-form__title">{eventId ? 'Edit Event' : 'New Event'}</h1>
+        
+        <label className="event-form__label" htmlFor="title">Event Title</label>
         <input
+          className="event-form__input"
           required
           type="text"
           name="title"
@@ -45,39 +48,42 @@ const EventForm = (props) => {
           value={formData.title}
           onChange={handleChange}
         />
-        <label htmlFor="description">Event description</label>
+        
+        <label className="event-form__label" htmlFor="description">Event Description</label>
         <textarea
+          className="event-form__textarea"
           required
-          type="text"
           name="description"
           id="description"
           value={formData.description}
           onChange={handleChange}
-        /> 
-
-         <label htmlFor="date">Event date</label>
-        <input 
+        />
+        
+        <label className="event-form__label" htmlFor="date">Event Date</label>
+        <input
+          className="event-form__input"
           required
           type="datetime-local"
           name="date"
           id="date"
           onChange={handleChange}
         />
-        
-         <label htmlFor="location">Event location</label>
+
+        <label className="event-form__label" htmlFor="location">Event Location</label>
         <textarea
+          className="event-form__textarea"
           required
-          type="text"
           name="location"
           id="location"
           value={formData.location}
           onChange={handleChange}
         />
 
-        <button type="submit">SUBMIT</button>
+        <button className="event-form__submit-button" type="submit">Submit</button>
       </form>
     </main>
   );
 };
+
 
 export default EventForm;
