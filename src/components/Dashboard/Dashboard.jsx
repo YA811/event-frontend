@@ -1,13 +1,15 @@
 import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
+import './Dashboard.css';
 
 const Dashboard = ({}) => {
   const user = useContext(AuthedUserContext);
   return (
-    <main>
-      <h1>Welcome to Evenzo, {user.username}</h1>
-      <p>You’ve got this! Planning your dream event starts here.</p>
-    </main>
+  <main className="welcome-container">
+    <h1 className="welcome-title">Welcome to Evenzo, {user.username}</h1>
+    <p className="welcome-message">You’ve got this! Planning your dream event starts here.</p>
+  </main>
+
   );
 };
 
