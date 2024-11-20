@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Homemade+Apple&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Homemade+Apple&family=Lemon&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Satisfy&family=Yatra+One&display=swap');
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f7f9fb;
+    padding: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    animation: fadeInUp 1.2s ease-out;
+  }
+  .intro-title {
+    font-family:"Lemon", serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #2d3e50; 
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+  }
+  .intro-subtitle {
+    font-family:"Lobster Two", sans-serif ;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #556e82; 
+    margin-bottom: 1.7rem;
+    line-height: 1.4;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 1s forwards;
+  }
+  .intro-description {
+    font-family:"Lobster Two", sans-serif ;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #6c757d; 
+    max-width: 750px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out 1.5s forwards;
+    line-height: 1.6;
+    padding: 0 20px;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

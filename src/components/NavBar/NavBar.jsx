@@ -16,7 +16,7 @@ const NavBar = ({ handleSignout }) => {
             <li className="navbar__item"><Link to="/events" className="navbar__link">Events</Link></li>
             <li className="navbar__item"><Link to="/events/new" className="navbar__link">NEW Event</Link></li>
             <li className="navbar__item">
-              <Link to="#" onClick={handleSignout} className="navbar__link navbar__signout">SIGN OUT</Link>
+              <Link to="/" onClick={handleSignout} className="navbar__link navbar__signout">SIGN OUT</Link>
             </li>
           </>
         ) : (

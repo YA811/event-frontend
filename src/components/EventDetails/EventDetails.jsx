@@ -60,7 +60,7 @@ const EventDetails = (props) => {
             <p className="attendee-name"><strong>Attendee:</strong> {attendee.name}</p>
             <p className="attendee-status"><strong>Invitation Status:</strong> {attendee.invitationStatus}</p>
             <div className="attendee-actions">
-              {attendee._id && (
+              {attendee._id && event.planner._id === user._id (
                 <>
                   <Link to={`/events/${eventId}/attendees/${attendee._id}/edit`} className="attendee-edit-link">Edit</Link>
                   <button onClick={() => handleDeleteAttendee(attendee._id)} className="attendee-delete-button">Delete</button>

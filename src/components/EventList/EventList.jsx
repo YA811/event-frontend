@@ -3,6 +3,9 @@ import './EventList.css';
 
 
 const EventList = (props) => {
+
+  if (props.events.length === 0) return <h4>No events added yet.</h4>;
+
   return (
     <main className="event-list-container">
       {props.events.map((event) => (
