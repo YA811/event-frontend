@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 90dvh;
     background-color: #f2f2f2;
     padding: 20px;
+    margin: 130px auto;
   }
 
   .event-form {
@@ -73,4 +74,6 @@
     background-color: #b0c4de;
     cursor: not-allowed;
   }
+
+
   
