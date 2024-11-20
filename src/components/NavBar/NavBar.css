@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #b0c4de;
+  background-color:rgb(61, 55, 47);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -29,11 +29,7 @@
 }
 
 .navbar__link:hover {
-  background-color: black;
-}
-
-.navbar__link.active {
-  background-color: #0056b3;
+  background-color: rgb(226, 202, 202);
 }
 
 .navbar__signout {
@@ -41,7 +37,7 @@
 }
 
 .navbar__signout:hover {
-  background-color:black;
+  background-color: rgb(226, 202, 202);
 }
 
 .navbar__auth-links {

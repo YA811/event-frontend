@@ -38,21 +38,18 @@
     transition: border-color 0.3s;
   }
   .form-input:focus, .form-select:focus {
-    border-color: #007bff;
+    border-color: rgba(0, 0, 0, 0.05);
   }
   .form-button {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
-    background-color: #007bff;
+    background-color: rgb(44, 38, 29);
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  .form-button:hover {
-    background-color: #0056b3;
   }
   @media (max-width: 768px) {
     .attendee-form {

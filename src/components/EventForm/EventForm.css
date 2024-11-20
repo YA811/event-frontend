@@ -1,13 +1,15 @@
 .event-form-container {
+    background-image: url('/public/pexels-ds-stories-8099392.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90dvh;
-    background-color: #f2f2f2;
     padding: 20px;
-    margin: 130px auto;
+    margin: auto;
   }
-
   .event-form {
     background-color: #fff;
     border-radius: 8px;
@@ -51,7 +53,7 @@
   }
   .event-form__input:focus,
   .event-form__textarea:focus {
-    border-color: #007bff;
+    border-color:rgb(44, 38, 29);
     background-color: #fff;
   }
   .event-form__submit-button {
@@ -62,16 +64,16 @@
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #b0c4de;
+    background-color: rgb(179, 167, 148);
     color: #fff;
     transition: background-color 0.3s ease;
     margin-top: 20px;
   }
   .event-form__submit-button:hover {
-    background-color: #0056b3;
+    background-color:rgb(44, 38, 29);
   }
   .event-form__submit-button:disabled {
-    background-color: #b0c4de;
+    background-color:rgb(179, 167, 148);
     cursor: not-allowed;
   }
 

@@ -1,20 +1,24 @@
+
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f2f2f2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
     margin: 0;
     padding: 0;
   }
- 
   .signin-container {
+    background-image: url('/public/pexels-ds-stories-8099502.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #eef1f5;
+   
   }
-
   .signin-form {
-    background-color: #fff;
+    background-color: #fffdf9;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 40px 60px;
@@ -25,14 +29,14 @@ body {
   .signin-form__title {
     text-align: center;
     font-size: 1.8rem;
-    color: #333;
+    color: rgb(44, 38, 29);
     margin-bottom: 30px;
     font-weight: 600;
     letter-spacing: 1px;
   }
   
   .signin-form__error-message {
-    color:  #b0c4de;
+    color:  rgb(226, 202, 202);
     font-size: 1rem;
     text-align: center;
     margin-top: 10px;
@@ -63,12 +67,6 @@ body {
     outline: none;
     box-sizing: border-box;
   }
-  
-  .signin-form__input:focus {
-    border-color: #007bff;
-    background-color: #fff;
-  }
-  
   .signin-form__button {
     width: 100%;
     padding: 14px 20px;
@@ -77,23 +75,23 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: rgb(44, 38, 29);
     color: #fff;
     transition: background-color 0.3s ease;
     margin-top: 15px;
   }
  
   .signin-form__button:hover {
-    background-color: #0056b3;
+    background-color: rgb(44, 38, 29);
   }
   
   .signin-form__button:disabled {
-    background-color: #b0c4de;
+    background-color:  rgb(179, 167, 148);
     cursor: not-allowed;
   }
   
   .signin-form__cancel-button {
-    background-color: #b0c4de;
+    background-color: rgb(179, 167, 148);
     padding: 12px 15px;
     font-size: 1.1rem;
     color: white;
@@ -105,7 +103,7 @@ body {
   }
   
   .signin-form__cancel-button:hover {
-    background-color: #e53935;
+    background-color: rgb(44, 38, 29);
   }
   
   /* Cancel Button Link */
