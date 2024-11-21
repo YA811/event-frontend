@@ -12,7 +12,7 @@ The event planning application streamlines the process of scheduling gatherings,
 
 ## Live App
 
-To view the app [click here](https://event-frontend-dwci31i1y-yousifs-projects-822eeb1b.vercel.app/)
+To view the app [click here](https://event-frontend-tau.vercel.app/)
 
 ## Back-End Repo 
 
